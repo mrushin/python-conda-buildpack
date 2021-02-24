@@ -57,11 +57,13 @@ $MINICONDA_CACHE -b -p $CONDA_HOME #&> /dev/null
 echo "-----> Installing Dependencies..."
 $CONDA_BIN/conda update --yes --quiet conda
 $CONDA_BIN/conda install --yes --quiet pip
-$CONDA_BIN/conda create --name "NGC" --file "$BUILD_DIR/requirements.txt"
+$CONDA_BIN/conda create --name "NGC" --file "$BUILD_DIR/requirements_conda.txt"
 
 
 # Default Conda env is root
 CONDA_ENV="NGC"
+
+$CONDA_BIN/pip install -r "$BUILD_DIR/requirements_pip.txt"
 
 $CONDA_BIN/conda clean -pt
 
