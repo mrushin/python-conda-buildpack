@@ -65,7 +65,8 @@ CONDA_ENV="NGC"
 
 $CONDA_BIN/pip install -r "$BUILD_DIR/requirements_pip.txt"
 
-$CONDA_BIN/conda clean -pt
+$CONDA_BIN/conda clean
+$CONDA_BIN/pip cache purge
 
 #
 echo "-----> Fixing paths..."
